@@ -1,0 +1,5 @@
+<div *ngIf="pagina" class="column paginacio">
+  <pagination [firstText]="'&nbsp'" [lastText]="'&nbsp'" [nextText]="'següent'" [previousText]="'anterior'" [itemsPerPage]="pageSize" [totalItems]="pagina?.totalElements" [(ngModel)]="currentPage" [maxSize]="5" class="pagination-sm"
+      [boundaryLinks]="true"  (pageChanged)="emitPageChanged($event)"></pagination>
+  <p>Total de pàgines:&nbsp;{{pagina?.totalPages}}</p>
+</div>

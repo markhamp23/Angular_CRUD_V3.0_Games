@@ -8,6 +8,10 @@ import { AppComponent } from './app.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { GamesListComponent } from './components/games-list/games-list.component';
 
+import { Ng2SearchPipeModule } from 'ng2-search-filter'; //importing the module
+import { Ng2OrderModule } from 'ng2-order-pipe'; //importing the module
+import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
+
 // Services
 import { GamesService } from './services/games.service';
 import { GameFormComponent } from './components/game-form/game-form.component';
@@ -23,7 +27,10 @@ import { GameFormComponent } from './components/game-form/game-form.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    Ng2SearchPipeModule, //including into imports
+    Ng2OrderModule, //add here
+    NgxPaginationModule //add here
   ],
   providers: [
     GamesService

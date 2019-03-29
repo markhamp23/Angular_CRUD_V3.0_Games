@@ -1,0 +1,8 @@
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
+.my-pagination /deep/ .ngx-pagination .current {
+    background: #343a40;
+  }
