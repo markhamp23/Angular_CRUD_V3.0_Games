@@ -1,0 +1,16 @@
+[
+  {
+    "context": [
+      "/api",
+      "/docs"
+    ],
+    "target": {
+      "port": "80",
+      "host": "localhost",
+      "protocol": "http"
+    },
+    "secure": false,
+    "loglevel": "debug"
+  }
+]
+

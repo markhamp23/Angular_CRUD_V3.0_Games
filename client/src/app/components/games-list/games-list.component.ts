@@ -12,12 +12,16 @@ import { Pagina } from '../../interfaces/pagina-interface';
 })
 export class GamesListComponent implements OnInit {
 
-  @HostBinding('class') classes = 'row';
+  //@HostBinding('class') classes = 'row';
+  mouseHover(e) {
+    document.getElementById("flash").style.visibility = "hidden";
+    var elems = document.getElementsByClassName('class1');
+  }
 
+  p: number = 1;
   games: any = [];
 
   constructor(private gameService: GamesService) { }
-
 
   ngOnInit() {
     this.getGames();

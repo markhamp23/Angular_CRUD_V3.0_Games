@@ -15,13 +15,15 @@ import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
 // Services
 import { GamesService } from './services/games.service';
 import { GameFormComponent } from './components/game-form/game-form.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
     GamesListComponent,
-    GameFormComponent
+    GameFormComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

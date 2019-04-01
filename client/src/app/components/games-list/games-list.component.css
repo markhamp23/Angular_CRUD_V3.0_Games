@@ -1,8 +1,22 @@
 .col-centered{
     float: none;
     margin: 0 auto;
+    float: center;
+    display: block;
 }
 
 .my-pagination /deep/ .ngx-pagination .current {
-    background: #343a40;
-  }
+    background: #f00d0d;
+}
+
+.flash {
+    opacity: 0.8;
+}
+
+.flash:hover {
+    opacity: 1;
+}
+
+.hold {
+    display: inline; /* the default for span */
+}
