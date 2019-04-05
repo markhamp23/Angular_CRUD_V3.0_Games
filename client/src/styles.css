@@ -1,2 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
-body { background-color: #313F45 !important }
+body { 
+    background-color: #313F45 !important; 
+    color: #868e96 !important;
+}
+
+.ngx-pagination a:hover {
+    color:#f1f413;text-decoration:underline;
+}
+
+.myfloat button {
+    position: absolute;
+    right: 0;
+}
+
+#hover a:hover {color:#f1f413 !important;}
+

@@ -1,0 +1,69 @@
+.bg-primary {
+    background-color: #0555e9;
+}
+
+.bg-one {
+    background-color: #071622;
+    margin-top: -5%
+}
+
+.bg-two{
+    background-color: #313F45;
+}
+
+.divider {
+    height: 1%;
+    width:100%;
+    display:block; /* for use on default inline elements like span */
+    margin: 9px 0;
+    overflow: hidden;
+    background-color: #313F45;
+  }
+
+
+#center1-bottom, #center2-bottom {
+    width: 46%;
+    float: left;
+    padding: 0px 20px 5px 5px;
+    
+}
+  
+#bottom h2 {
+    background: #313F45;
+    font-family: 13px Halvetica, Arial, Verdana, Sans-serif;
+    font-size: 19px;
+    letter-spacing: -1px;
+    margin: 0 0 10px 0;
+    padding: 4px 10px;
+    color: #fff;
+    font-weight: normal;
+    text-transform: Capitalize;
+    border: 1px solid #0a0c11;
+    text-shadow: 1px 1px 2px #000;
+}
+
+#bottom {
+    width: 50vw;
+    font: 13px Halvetica, Arial, Verdana, Sans-serif;
+    font-size: 17px;
+    margin: 0 0 0 0;
+    color: #fff !important;
+}
+
+
+.widget {
+    padding: 0px 0px 0px 0px;
+    
+}
+
+
+div.clear {
+    clear: both;
+}
+
+li, a {
+    list-style-type: none;
+    color: #fff !important;
+    padding: 0 0px;
+    margin-left: -4%
+}

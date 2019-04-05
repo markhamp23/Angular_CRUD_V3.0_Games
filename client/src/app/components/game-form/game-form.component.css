@@ -3,3 +3,9 @@
     margin: 0 auto;
 }
 
+.myfloat{
+    float: none;
+    margin: 0 auto;
+    float: right;
+    display: fixed;
+}

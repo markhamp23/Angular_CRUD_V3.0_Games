@@ -1,0 +1,8 @@
+div.clear {
+    clear: both;
+}
+
+.credit {
+    padding: 5px 15px 0 15px;
+    text-align: center;
+}

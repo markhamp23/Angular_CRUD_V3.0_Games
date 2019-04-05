@@ -11,7 +11,10 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class GameFormComponent implements OnInit {
 
-  @HostBinding('class') clases = 'row';
+  //@HostBinding('class') clases = 'row';
+
+  p: number = 1;
+  games: any = [];
 
   game: Game = {
     id: 0,
@@ -26,6 +29,7 @@ export class GameFormComponent implements OnInit {
   constructor(private gameService: GamesService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
+    this.getGames();
     const params = this.activatedRoute.snapshot.params;
     if (params.id) {
       this.gameService.getGame(params.id)
@@ -38,6 +42,16 @@ export class GameFormComponent implements OnInit {
           err => console.log(err)
         )
     }
+  }
+
+  getGames() {
+    this.gameService.getGames()
+      .subscribe(
+        res => {
+          this.games = res;
+        },
+        err => console.error(err)
+      );
   }
 
   saveNewGame() {

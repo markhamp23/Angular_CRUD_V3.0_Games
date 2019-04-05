@@ -1,5 +1,6 @@
-<div class="col-md-8 offset-md-2 col-centered">
-  <div class="card">
+<div class="col-md-10 offset-md-2 col-centered">
+
+  <div class="card mt-4">
     <div class="card-body">
       <form action="">
         <div class="form-group">
@@ -26,7 +27,8 @@
       <h3 class="text-center mt-4">{{game.title == '' ? 'Game Title' : game.title}}</h3>
       <p>{{game.description == '' ? 'Write your Descrition' : game.description}}</p>
       <p>{{game.created_at | date: 'dd/MM/yyyy'}}</p>
-    </div>
+  </div>
 
 </div>
 
+<app-footer [games]="games"></app-footer>

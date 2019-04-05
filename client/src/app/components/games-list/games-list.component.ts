@@ -1,9 +1,7 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
-
 import { GamesService } from '../../services/games.service';
-import { Game } from 'src/app/models/game';
-import { PageConfigModel } from '../../models/pageConfig';
-import { Pagina } from '../../interfaces/pagina-interface';
+import { FooterComponent } from '../footer/footer.component';
+
 
 @Component({
   selector: 'app-games-list',
@@ -48,8 +46,4 @@ export class GamesListComponent implements OnInit {
       )
   }
 
-
-
-  
-  
 }

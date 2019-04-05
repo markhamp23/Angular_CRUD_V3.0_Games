@@ -16,6 +16,7 @@ import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
 import { GamesService } from './services/games.service';
 import { GameFormComponent } from './components/game-form/game-form.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { Footer2Component } from './components/footer2/footer2.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { FooterComponent } from './components/footer/footer.component';
     NavigationComponent,
     GamesListComponent,
     GameFormComponent,
-    FooterComponent
+    FooterComponent,
+    Footer2Component
   ],
   imports: [
     BrowserModule,

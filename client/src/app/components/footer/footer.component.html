@@ -1,14 +1,41 @@
 <!-- Footer -->
-<footer class="page-footer font-small special-color-dark">
+<footer>
 
-  <!-- Footer Elements -->
-  <!-- Footer Elements -->
+    <hr class="divider mt-4"/>
 
-  <!-- Copyright -->
-  <div class="footer-copyright text-center py-4">© 2019 Copyright:
-    <a href="https://mdbootstrap.com/education/bootstrap/"> DXC Technology</a>
+    <div class="col-md-4">
+    <div id="bottom">
+      <div class="bottom section" id="center2-bottom">
+          <div class="widget Label mt-4">
+            <h2>Categories</h2>
+                <div class="widget-content list-label-widget-content mt-4">
+                  <div id='hover' *ngFor="let gam of games">
+                      <ul>
+                        <li>
+                          <a href="">{{gam.title}}</a>
+                        </li>
+                      </ul>
+                  </div>
+                </div>
+              </div>
+          </div>
+      </div>
+
+    <div id="bottom" class="hidden-xs hidden-sm">
+        <div class="hidden-xs hidden-sm bottom section" id="center1-bottom">
+            <div class="hidden-xs hidden-sm widget Label mt-4">
+                <h2>Popular Posts</h2>
+                  <div class="hidden-xs hidden-sm widget-content list-label-widget-content"></div>
+            </div>
+        </div>
+    </div>
+    
   </div>
-  <!-- Copyright -->
+
+  <div style="clear: both;"></div>
 
 </footer>
 <!-- Footer -->
+
+	
+
