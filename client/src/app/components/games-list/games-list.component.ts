@@ -1,7 +1,5 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
 import { GamesService } from '../../services/games.service';
-import { FooterComponent } from '../footer/footer.component';
-
 
 @Component({
   selector: 'app-games-list',
@@ -18,6 +16,7 @@ export class GamesListComponent implements OnInit {
 
   p: number = 1;
   games: any = [];
+  llistaAux: any = [];
 
   constructor(private gameService: GamesService) { }
 
@@ -30,6 +29,7 @@ export class GamesListComponent implements OnInit {
       .subscribe(
         res => {
           this.games = res;
+          this.getLlistaAux();
         },
         err => console.error(err)
       );
@@ -44,6 +44,13 @@ export class GamesListComponent implements OnInit {
         },
         err => console.error(err)
       )
+  }
+
+  getLlistaAux() {
+    for(let i = 0; i <= 8; i++){
+      var newItem = this.games[Math.floor(Math.random() * this.games.length)];
+      this.llistaAux.indexOf(newItem) === -1 ? this.llistaAux.push(newItem): console.log("This item already exists");
+    }
   }
 
 }

@@ -7,6 +7,12 @@ body {
 .ngx-pagination a:hover {
     color:#f1f413;text-decoration:underline;
 }
+.my-pagination a:active{
+    outline:0;
+}
+.my-pagination a:focus {
+    outline:0;
+}
 
 .myfloat button {
     position: absolute;
@@ -14,4 +20,13 @@ body {
 }
 
 #hover a:hover {color:#f1f413 !important;}
+
+.divider {
+    height: 1%;
+    width:100%;
+    display:block; /* for use on default inline elements like span */
+    margin: 9px 0;
+    overflow: hidden;
+    background-color: #313F45;
+  }
 

@@ -15,6 +15,7 @@ export class GameFormComponent implements OnInit {
 
   p: number = 1;
   games: any = [];
+  llistaAux: any = [];
 
   game: Game = {
     id: 0,
@@ -37,7 +38,7 @@ export class GameFormComponent implements OnInit {
           res => {
             console.log(res);
             this.game = res;
-            this.edit = true;
+            this.edit = true
           },
           err => console.log(err)
         )
@@ -49,6 +50,7 @@ export class GameFormComponent implements OnInit {
       .subscribe(
         res => {
           this.games = res;
+          this.getLlistaAux();
         },
         err => console.error(err)
       );
@@ -77,5 +79,11 @@ export class GameFormComponent implements OnInit {
         },
         err => console.error(err)
       )
+  }
+  getLlistaAux() {
+    for(let i = 0; i <= 8; i++){
+      var newItem = this.games[Math.floor(Math.random() * this.games.length)];
+      this.llistaAux.indexOf(newItem) === -1 ? this.llistaAux.push(newItem): console.log("This item already exists");
+    }
   }
 }

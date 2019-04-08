@@ -9,10 +9,10 @@
           <div class="widget Label mt-4">
             <h2>Categories</h2>
                 <div class="widget-content list-label-widget-content mt-4">
-                  <div id='hover' *ngFor="let gam of games">
+                  <div id='hover' *ngFor="let game of games">
                       <ul>
                         <li>
-                          <a href="">{{gam.title}}</a>
+                          <a href="">{{game.title}}</a>
                         </li>
                       </ul>
                   </div>
@@ -21,15 +21,55 @@
           </div>
       </div>
 
-    <div id="bottom" class="hidden-xs hidden-sm">
-        <div class="hidden-xs hidden-sm bottom section" id="center1-bottom">
-            <div class="hidden-xs hidden-sm widget Label mt-4">
+    <div id="bottom" class="row h-100 align-items-center">
+        <div class="bottom section" id="center1-bottom">
+            <div class="widget PopularPosts Label mt-4">
                 <h2>Popular Posts</h2>
-                  <div class="hidden-xs hidden-sm widget-content list-label-widget-content"></div>
+                  <div class="widget-content list-label-widget-content">
+                    <div id='hover' *ngFor="let game of llistaAux; ">
+
+                      <ul>
+                        <li>
+                          <div class="item-content">
+                          <div class="item-thumbnail">
+                          <a href="">		<img alt="" width="72px" height="72px" [src]="game.image">		</a>
+                          </div>
+                          <div class="item-title">
+                          <a class="my-pagination" dir="ltr" href=""> {{game.title}} </a>		</div>
+                          <div class="item-snippet my-pagination">{{game.description}}</div>		</div>
+                          <div style="clear: both;"></div>
+                        </li>
+                      </ul>
+
+                    </div>
+                  </div>
             </div>
         </div>
     </div>
     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   </div>
 
   <div style="clear: both;"></div>

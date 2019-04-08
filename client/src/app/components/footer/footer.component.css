@@ -11,21 +11,38 @@
     background-color: #313F45;
 }
 
-.divider {
+.dividerFooter {
     height: 1%;
-    width:100%;
+    width:105%;
     display:block; /* for use on default inline elements like span */
-    margin: 9px 0;
+    margin-left: -24px;
     overflow: hidden;
     background-color: #313F45;
   }
 
 
 #center1-bottom, #center2-bottom {
-    width: 46%;
+    width: 50%;
     float: left;
     padding: 0px 20px 5px 5px;
+    margin-left: 0%
+}
+@media only screen and (max-width: 600px) {
+    #center1-bottom, #center2-bottom {
+        width: 190%;
+        float: left;
+        padding: 0px 20px 5px 5px;
+        margin-left: 20%
+    }
+    #bottom h2 {}
     
+    #bottom {
+        width: 43vw !important;
+        font: 13px Halvetica, Arial, Verdana, Sans-serif;
+        font-size: 17px;
+        margin-left: -38px !important;
+        color: #fff !important;
+    }
 }
   
 #bottom h2 {
@@ -43,7 +60,7 @@
 }
 
 #bottom {
-    width: 50vw;
+    width: 55vw;
     font: 13px Halvetica, Arial, Verdana, Sans-serif;
     font-size: 17px;
     margin: 0 0 0 0;
@@ -52,7 +69,8 @@
 
 
 .widget {
-    padding: 0px 0px 0px 0px;
+    padding: 0 15px 20px 15px;
+    margin-left: -37px !important;
     
 }
 
@@ -65,5 +83,56 @@ li, a {
     list-style-type: none;
     color: #fff !important;
     padding: 0 0px;
-    margin-left: -4%
 }
+
+.PopularPosts .item-thumbnail {
+    float: left;
+    margin: 0px 5px 5px 5px;
+    margin-left: -20px;
+}
+
+.PopularPosts .item-title {
+    font-weight: bold;
+    font-size: 17px;
+    height:20px;
+    overflow: hidden;
+    padding: 0px;
+}
+
+.PopularPosts .item-snippet {
+    height: 61px;
+    width: 50%;
+    overflow: hidden;
+    padding-top: 5px;
+}
+
+div {
+    display: block;
+}
+
+.PopularPosts .item-title {
+    padding-bottom: .2em;
+}
+a:link, a:visited, a:hover {
+    color: #fff !important;
+    
+}
+
+a:hover img {
+    color: #ff0 !important;
+    text-decoration: none;
+}
+
+.my-pagination {
+    float: left;
+    padding: 0px;
+    margin-left: 0px;
+    color: #fff;
+}
+
+a img {
+    vertical-align: middle;
+    border:1px solid #fff;
+    background-color:tr;
+}
+

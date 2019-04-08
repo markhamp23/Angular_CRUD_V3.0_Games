@@ -8,23 +8,12 @@ import { GamesService } from '../../services/games.service';
 })
 export class FooterComponent implements OnInit {
 
-  p: number = 1;
- 
   @Input() games: any;
+  @Input() llistaAux: any;
 
   constructor(private gameService: GamesService) { }
 
   ngOnInit() {
   }
-
-  /*getGames() {
-    this.gameService.getGames()
-      .subscribe(
-        res => {
-          this.games = res;
-        },
-        err => console.error(err)
-      );
-  }*/
 
 }
