@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 class IndexController {
     index(req, res) {
-        res.json({ text: 'API is in /api/games' });
+        res.json({ text: 'API is in /api/games and /api/users' });
     }
 }
 exports.indexController = new IndexController;

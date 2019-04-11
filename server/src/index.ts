@@ -4,6 +4,7 @@ import cors from 'cors';
 
 import indexRoutes from './routes/indexRoutes';
 import gamesRoutes from './routes/gamesRoutes';
+import usersRoutes from './routes/usersRoutes';
 
 class Server {
 
@@ -20,12 +21,14 @@ class Server {
         this.app.use(morgan('dev'));
         this.app.use(cors());
         this.app.use(express.json());
-        this.app.use(express.urlencoded({extended: false}))
+        this.app.use(express.urlencoded({extended: false}));
+        this.app.use(express.static('public'));
     }
 
     routes(): void{
         this.app.use('/',indexRoutes);
         this.app.use('/api/games',gamesRoutes);
+        this.app.use('/api/users',usersRoutes);
     }
 
     start(): void{
