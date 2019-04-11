@@ -24,7 +24,7 @@
 #center1-bottom, #center2-bottom {
     width: 50%;
     float: left;
-    padding: 0px 20px 5px 5px;
+    padding: 10px 20px 15px 5px;
     margin-left: 0%
 }
 @media only screen and (max-width: 600px) {
@@ -37,7 +37,7 @@
     #bottom h2 {}
     
     #bottom {
-        width: 43vw !important;
+        width: 42vw !important;
         font: 13px Halvetica, Arial, Verdana, Sans-serif;
         font-size: 17px;
         margin-left: -38px !important;
@@ -52,6 +52,7 @@
     letter-spacing: -1px;
     margin: 0 0 10px 0;
     padding: 4px 10px;
+    margin-bottom: 30px;
     color: #fff;
     font-weight: normal;
     text-transform: Capitalize;
@@ -85,10 +86,15 @@ li, a {
     padding: 0 0px;
 }
 
+.Categories li {
+    margin-left: -30px !important;
+}
+
 .PopularPosts .item-thumbnail {
     float: left;
     margin: 0px 5px 5px 5px;
     margin-left: -20px;
+    padding-top: 0px;
 }
 
 .PopularPosts .item-title {
@@ -96,14 +102,16 @@ li, a {
     font-size: 17px;
     height:20px;
     overflow: hidden;
-    padding: 0px;
+    padding-top: 0px;
+    padding-left: 10px;
 }
 
 .PopularPosts .item-snippet {
     height: 61px;
     width: 50%;
     overflow: hidden;
-    padding-top: 5px;
+    padding-top: 0px;
+    padding-left: 10px;
 }
 
 div {
@@ -112,6 +120,7 @@ div {
 
 .PopularPosts .item-title {
     padding-bottom: .2em;
+    padding-top: 0px;
 }
 a:link, a:visited, a:hover {
     color: #fff !important;

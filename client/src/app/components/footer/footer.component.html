@@ -6,7 +6,7 @@
     <div class="col-md-4">
     <div id="bottom">
       <div class="bottom section" id="center2-bottom">
-          <div class="widget Label mt-4">
+          <div class="widget Categories Label mt-4">
             <h2>Categories</h2>
                 <div class="widget-content list-label-widget-content mt-4">
                   <div id='hover' *ngFor="let game of games">
@@ -21,13 +21,12 @@
           </div>
       </div>
 
-    <div id="bottom" class="row h-100 align-items-center">
+    <div id="bottom">
         <div class="bottom section" id="center1-bottom">
             <div class="widget PopularPosts Label mt-4">
                 <h2>Popular Posts</h2>
                   <div class="widget-content list-label-widget-content">
                     <div id='hover' *ngFor="let game of llistaAux; ">
-
                       <ul>
                         <li>
                           <div class="item-content">
@@ -37,39 +36,14 @@
                           <div class="item-title">
                           <a class="my-pagination" dir="ltr" href=""> {{game.title}} </a>		</div>
                           <div class="item-snippet my-pagination">{{game.description}}</div>		</div>
-                          <div style="clear: both;"></div>
+                          <hr class="dividerFooter mt-4"/>
                         </li>
                       </ul>
-
                     </div>
                   </div>
             </div>
         </div>
     </div>
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   </div>
 
   <div style="clear: both;"></div>

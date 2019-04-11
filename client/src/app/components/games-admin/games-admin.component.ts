@@ -2,13 +2,13 @@ import { Component, OnInit, HostBinding } from '@angular/core';
 import { GamesService } from '../../services/games.service';
 
 @Component({
-  selector: 'app-games-list',
-  templateUrl: './games-list.component.html',
-  styleUrls: ['./games-list.component.css'],
+  selector: 'app-games-admin',
+  templateUrl: './games-admin.component.html',
+  styleUrls: ['./games-admin.component.css'],
 })
-export class GamesListComponent implements OnInit {
+export class GamesAdminComponent implements OnInit {
 
-  modeUser: boolean = true;
+  firstLoad: boolean = true;
 
   //@HostBinding('class') classes = 'row';
   mouseHover(e) {
@@ -23,6 +23,12 @@ export class GamesListComponent implements OnInit {
   constructor(private gameService: GamesService) { }
 
   ngOnInit() {
+
+    if(this.firstLoad) {
+      window.scroll(0,0);
+      this.firstLoad = false;
+    }
+
     this.getGames();
   }
 

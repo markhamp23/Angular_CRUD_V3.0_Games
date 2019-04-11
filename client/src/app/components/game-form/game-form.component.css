@@ -9,3 +9,12 @@
     float: right;
     display: fixed;
 }
+
+.myClass {
+    display: inline-block; 
+    font: 13px Halvetica, Arial, Verdana, Sans-serif;
+    font-size: 17px;
+    color: #fff !important;
+    margin-left: -6%
+
+}

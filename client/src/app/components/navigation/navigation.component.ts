@@ -10,6 +10,15 @@ export class NavigationComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.openForm;
+    this.closeForm;
   }
 
+  openForm() {
+    document.getElementById("myForm").style.display = "block";
+  }
+  
+  closeForm() {
+    document.getElementById("myForm").style.display = "none";
+  }
 }
