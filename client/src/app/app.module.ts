@@ -18,6 +18,7 @@ import { GameFormComponent } from './components/game-form/game-form.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { Footer2Component } from './components/footer2/footer2.component';
 import { GamesAdminComponent } from './components/games-admin/games-admin.component';
+import { AuthenticationService } from './services/authentication.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { GamesAdminComponent } from './components/games-admin/games-admin.compon
     GameFormComponent,
     FooterComponent,
     Footer2Component,
-    GamesAdminComponent
+    GamesAdminComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,7 +40,8 @@ import { GamesAdminComponent } from './components/games-admin/games-admin.compon
     NgxPaginationModule, //add here
   ],
   providers: [
-    GamesService
+    GamesService, 
+    AuthenticationService
   ],
   bootstrap: [AppComponent]
 })

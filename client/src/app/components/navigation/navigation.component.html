@@ -2,7 +2,7 @@
   <div class="container h-100">
     <div class="row h-100 align-items-center">
       <div class="col-12 text-center">
-          <p class="lead">Angular Photo Gallery</p>
+        <p class="lead">Angular Photo Gallery</p>
       </div>
     </div>
   </div>
@@ -11,21 +11,21 @@
 <!--Full Page Image Header with Vertically Centered Content -->
 
 <nav class="navbar-expand-lg">
-    <div class="navbar-collapse mt-4" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link text-white" routerLink="/games"><i class="fas fa-gamepad"></i> Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" routerLink="/games/add"><i class="fas fa-plus-circle"></i> Add Post</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" (click)="openForm()"><i class="fas fa fa-key"></i> Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" (click)="openForm()"><i class="fas fa fa-key"></i> Logout</a>
-        </li>
-      </ul>
+  <div class="navbar-collapse mt-4" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link text-white" routerLink="/games"><i class="fas fa-gamepad"></i> Home</a>
+      </li>
+      <li *ngIf="!validateUser" class="nav-item">
+        <a class="nav-link text-white" routerLink="/games/add"><i class="fas fa-plus-circle"></i> Add Post</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" (click)="openForm()"><i class="fas fa fa-key"></i> Login</a>
+      </li>
+      <li *ngIf="!validateUser" class="nav-item">
+        <a class="nav-link text-white" (click)="openForm()"><i class="fas fa fa-key"></i> Logout</a>
+      </li>
+    </ul>
   </div>
 </nav>
 
@@ -33,12 +33,12 @@
   <form action="" class="form-container" method="post">
     <h1 class="text-white">Login</h1>
     <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" name="username" required>
+    <input type="text" placeholder="Enter Email" name="username" [(ngModel)]="username" required>
 
     <label for="password"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="password" required>
+    <input type="password" placeholder="Enter Password" name="password" [(ngModel)]="password" required>
 
-    <button type="submit" class="btn login text-white">Login</button>
+    <button type="submit" class="btn login text-white" (click)="validateUser()">Login</button>
     <button type="button" class="btn cancel" (click)="closeForm()">Close</button>
   </form>
 </div>
