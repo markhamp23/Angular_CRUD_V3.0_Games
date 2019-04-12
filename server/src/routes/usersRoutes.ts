@@ -19,3 +19,4 @@ class UserRoutes {
 }
 
 export default new UserRoutes().router;
+

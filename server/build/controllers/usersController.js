@@ -15,8 +15,9 @@ const database_1 = __importDefault(require("../database"));
 var LocalStrategy = require("passport-local").Strategy;
 var mysql = require('mysql');
 var bcrypt = require('bcrypt-nodejs');
-var dbconfig = require('./database');
-var connection = mysql.createConnection(database_1.default);
+var dbconfig = require('../database');
+var connection = mysql.createConnection(dbconfig.connection);
+connection.query('USE ' + dbconfig.database);
 class UsersController {
     //allrecords
     list(req, res) {
@@ -33,6 +34,7 @@ class UsersController {
             //console.log(users.length);
             if (users.length > 0) {
                 return res.json(users[0]);
+                console.log(users[0]);
             }
             res.status(404).json({ text: "The user doesn't exits" });
         });
