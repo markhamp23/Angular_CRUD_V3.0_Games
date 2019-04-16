@@ -14,7 +14,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const database_1 = __importDefault(require("../database"));
 class GamesController {
     //allrecords
-    list(req, res) {
+    getAll(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const games = yield database_1.default.query('SELECT * FROM games');
             res.json(games);

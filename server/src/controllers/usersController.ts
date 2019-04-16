@@ -5,15 +5,11 @@ var LocalStrategy = require("passport-local").Strategy;
 var mysql = require('mysql');
 var bcrypt = require('bcrypt-nodejs');
 var dbconfig = require('../database');
-var connection = mysql.createConnection(dbconfig.connection);
-connection.query('USE ' + dbconfig.database);
-
-
 
 class UsersController {
 
     //allrecords
-    public async list(req: Request, res: Response): Promise<void> {
+    public async getAll(req: Request, res: Response): Promise<void> {
         const users = await pool.query('SELECT * FROM users');
         res.json(users);
     }
@@ -25,15 +21,31 @@ class UsersController {
         //console.log(users.length);
         if (users.length > 0) {
             return res.json(users[0]);
-            console.log(users[0]);
+            //console.log(res);
         }
         res.status(404).json({ text: "The user doesn't exits" });
     }
 
+        //getone
+        public async validate(req: Request, res: Response): Promise<any> {
+            const { id,username,password } = req.params;
+            const users = await pool.query('SELECT * FROM users WHERE id = ?', [id]);
+            //console.log(users.length);
+            if (users.length > 0) {
+                return res.json(users[0]);
+                //console.log(res);
+            }
+            res.status(404).json({ text: "The user doesn't exits" });
+        }
+
+    public async provaAlex() {
+        console.log("Holas");
+    }
+
     //create
     public async create(req: Request, res: Response): Promise<void> {
-        const result = await pool.query('INSERT INTO users set ?', [req.body]);
-        res.json({ message: 'User Saved' });
+       const result = await pool.query('INSERT INTO users set ?', [req.body]);
+       res.json({ message: 'User Saved' });
     }
 
     //delete
@@ -42,7 +54,6 @@ class UsersController {
         await pool.query('DELETE FROM users WHERE id = ?', [id]);
         res.json({ message: "The user was deleted" });
     }
-
 }
 
 const usersController = new UsersController;

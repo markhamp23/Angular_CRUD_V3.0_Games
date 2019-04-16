@@ -16,11 +16,9 @@ var LocalStrategy = require("passport-local").Strategy;
 var mysql = require('mysql');
 var bcrypt = require('bcrypt-nodejs');
 var dbconfig = require('../database');
-var connection = mysql.createConnection(dbconfig.connection);
-connection.query('USE ' + dbconfig.database);
 class UsersController {
     //allrecords
-    list(req, res) {
+    getAll(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const users = yield database_1.default.query('SELECT * FROM users');
             res.json(users);
@@ -34,9 +32,27 @@ class UsersController {
             //console.log(users.length);
             if (users.length > 0) {
                 return res.json(users[0]);
-                console.log(users[0]);
+                //console.log(res);
             }
             res.status(404).json({ text: "The user doesn't exits" });
+        });
+    }
+    //getone
+    validate(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { id, username, password } = req.params;
+            const users = yield database_1.default.query('SELECT * FROM users WHERE id = ?', [id]);
+            //console.log(users.length);
+            if (users.length > 0) {
+                return res.json(users[0]);
+                //console.log(res);
+            }
+            res.status(404).json({ text: "The user doesn't exits" });
+        });
+    }
+    provaAlex() {
+        return __awaiter(this, void 0, void 0, function* () {
+            console.log("Holas");
         });
     }
     //create

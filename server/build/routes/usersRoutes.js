@@ -11,9 +11,11 @@ class UserRoutes {
         this.config();
     }
     config() {
-        this.router.get('/', usersController_1.default.list);
+        this.router.get('/', usersController_1.default.getAll);
         this.router.get('/:id', usersController_1.default.getOne);
-        this.router.post('/', usersController_1.default.create);
+        this.router.post('/', usersController_1.default.validate);
+        //this.router.post('/', usersController.create);
+        //this.router.post('/', usersController.provaAlex);
         this.router.delete('/:id', usersController_1.default.delete);
     }
 }
