@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
-import { User } from '../models/User';
-import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { map } from 'rxjs/operators';
+import { User } from '../models/user';
+//import { Observable } from 'rxjs/Observable';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 
 export class AuthenticationService {
 
@@ -15,23 +14,26 @@ export class AuthenticationService {
 
   constructor(private http: HttpClient) { }
 
+  login(username: string, password: string) {
+    return this.http.post<any>(`${this.API_URI}/users/`, { username: username, password: password })
+        .pipe(map(user => {
+            // login successful if there's a jwt token in the response
+            if (user && user.token) {
+                // store user details and jwt token in local storage to keep user logged in between page refreshes
+                localStorage.setItem('currentUser', JSON.stringify(User));
+            }
+            return user;
+        }));
+  }
+
   getUser(username,password) {
-    return this.http.post(`${this.API_URI}/usersy`, JSON.stringify({ email: username, password: password }), { headers: this.headers})
+    return this.http.post(`${this.API_URI}/users/`, JSON.stringify({ email: username, password: password }), { headers: this.headers})
   }
 
-  getUsers() {
-    return this.http.get(`${this.API_URI}/users/`);
+  logout() {
+      // remove user from local storage to log user out
+      localStorage.removeItem('currentUser');
+      console.log('hola');
   }
 
-  deleteUser(username: string) {
-    return this.http.delete(`${this.API_URI}/users/${username}`);
-  }
-
-  saveUser(user: User) {
-    return this.http.post(`${this.API_URI}/users`, user);
-  }
-
-  updateUser(username: string, updatedUser: User): Observable<User> {
-    return this.http.put(`${this.API_URI}/users/${username}`, updatedUser);
-  }
 }

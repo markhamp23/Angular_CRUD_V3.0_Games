@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { GamesListComponent } from './components/games-list/games-list.component';
 import { GameFormComponent } from './components/game-form/game-form.component';
-
+import { NavigationComponent } from './components/navigation/navigation.component';
 
 const routes: Routes = [
   {
@@ -21,6 +21,11 @@ const routes: Routes = [
   {
     path: 'games/edit/:id',
     component: GameFormComponent
+  }, 
+  {
+    path: 'users',
+    component: NavigationComponent,
+    pathMatch: 'full'
   }
 ];
 

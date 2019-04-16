@@ -10,41 +10,45 @@ import { User } from 'src/app/models/user';
 })
 export class NavigationComponent implements OnInit {
 
-  users: any = [];
-  userValidate: boolean = false;
+  validateUser: boolean = false;
+  currentUser: User;
+  users: User[] = [];
 
- 
-    username: '';
-    password: '';
-  
+  constructor(private authenticationService: AuthenticationService, private router: Router, private activatedRoute: ActivatedRoute) {}
 
+  ngOnInit() {}
 
-  constructor(private authenticationService: AuthenticationService, private router: Router, private activatedRoute: ActivatedRoute) { }
+logIn(username: string, password: string, event: Event) {
+  event.preventDefault(); // Avoid default action for the submit button of the login form
 
-  ngOnInit() {
-    this.getUsers;
-  }
+  // Calls service to login user to the api rest
+  this.authenticationService.login(username, password).subscribe(
 
-  getUsers() {
-    this.authenticationService.getUsers()
-      .subscribe(
-        res => {
-          this.users = res;
-        },
-        err => console.error(err)
-      );
-  }
+    res => {
+     console.log(res);
+     this.validateUser = true;
+    },
+    error => {
+      console.error(error);
+    },
+    () => this.navigate()
+  );
 
-  validateUser() {
-    this.authenticationService.getUser(this.username,this.password)
-      .subscribe(
-        res => {
-          console.log(res);
-          this.getUsers();
-          this.userValidate = true;
-        },
-        err => console.error(err)
-      )
+}
+
+navigate() {
+  this.closeForm();
+  this.router.navigateByUrl('/games');
+  this.router.navigate(['/games']);
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+  logout() {
+    this.validateUser = null;
+    // remove user from local storage to log user out
+    localStorage.removeItem('currentUser');
+    console.log('hola');
   }
 
   openForm() {

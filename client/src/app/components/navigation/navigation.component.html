@@ -16,14 +16,14 @@
       <li class="nav-item">
         <a class="nav-link text-white" routerLink="/games"><i class="fas fa-gamepad"></i> Home</a>
       </li>
-      <li *ngIf="!validateUser" class="nav-item">
+      <li *ngIf="validateUser" class="nav-item">
         <a class="nav-link text-white" routerLink="/games/add"><i class="fas fa-plus-circle"></i> Add Post</a>
       </li>
       <li class="nav-item">
         <a class="nav-link text-white" (click)="openForm()"><i class="fas fa fa-key"></i> Login</a>
       </li>
-      <li *ngIf="!validateUser" class="nav-item">
-        <a class="nav-link text-white" (click)="openForm()"><i class="fas fa fa-key"></i> Logout</a>
+      <li *ngIf="validateUser" class="nav-item">
+        <a class="nav-link text-white" (click)="logout()"><i class="fas fa fa-key"></i> Logout</a>
       </li>
     </ul>
   </div>
@@ -31,15 +31,21 @@
 
 <div class="form-popup" id="myForm">
   <form action="" class="form-container" method="post">
+
     <h1 class="text-white">Login</h1>
-    <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" name="username" [(ngModel)]="username" required>
+
+    <label for="id"><b>Id</b></label>
+    <input type="id" #id name="id" placeholder="id">
+
+    <label for="username"><b>User Name</b></label>
+    <input type="text" #username name="username" placeholder="Username">
 
     <label for="password"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="password" [(ngModel)]="password" required>
+    <input type="password" #password name="password" placeholder="Password">
 
-    <button type="submit" class="btn login text-white" (click)="validateUser()">Login</button>
+    <button type="submit" class="btn login text-white" (click)="logIn(id.value,username.value, password.value, $event)" id="login-button">Login</button>
     <button type="button" class="btn cancel" (click)="closeForm()">Close</button>
+
   </form>
 </div>
 
