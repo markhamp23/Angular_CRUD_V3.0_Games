@@ -34,20 +34,22 @@ class UsersController {
                 return res.json(users[0]);
                 //console.log(res);
             }
-            res.status(404).json({ text: "The user doesn't exits" });
+            res.status(222).json({ text: "The user doesn't exits" });
         });
     }
     //getone
     validate(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id, username, password } = req.params;
-            const users = yield database_1.default.query('SELECT * FROM users WHERE id = ?', [id]);
-            //console.log(users.length);
+            const users = yield database_1.default.query('SELECT * FROM users WHERE id = ?', [req.body.id]);
+            console.log(users.length);
             if (users.length > 0) {
-                return res.json(users[0]);
-                //console.log(res);
+                return res.json(true);
             }
-            res.status(404).json({ text: "The user doesn't exits" });
+            else {
+                return res.json(false);
+            }
+            res.status(223).json({ text: "The user doesn't exits" });
         });
     }
     provaAlex() {

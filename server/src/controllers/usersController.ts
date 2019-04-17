@@ -23,19 +23,20 @@ class UsersController {
             return res.json(users[0]);
             //console.log(res);
         }
-        res.status(404).json({ text: "The user doesn't exits" });
+        res.status(222).json({ text: "The user doesn't exits" });
     }
 
         //getone
         public async validate(req: Request, res: Response): Promise<any> {
             const { id,username,password } = req.params;
-            const users = await pool.query('SELECT * FROM users WHERE id = ?', [id]);
-            //console.log(users.length);
+            const users = await pool.query('SELECT * FROM users WHERE id = ?', [req.body.id]);
+            console.log(users.length);
             if (users.length > 0) {
-                return res.json(users[0]);
-                //console.log(res);
+                    return res.json(true);
+            }else{
+                return res.json(false);
             }
-            res.status(404).json({ text: "The user doesn't exits" });
+            res.status(223).json({ text: "The user doesn't exits" });
         }
 
     public async provaAlex() {
