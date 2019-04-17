@@ -1,5 +1,6 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
 import { GamesService } from '../../services/games.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-games-list',
@@ -9,6 +10,7 @@ import { GamesService } from '../../services/games.service';
 export class GamesListComponent implements OnInit {
 
   modeUser: boolean = true;
+  cookieValue = 'UNKNOWN';
 
   //@HostBinding('class') classes = 'row';
   mouseHover(e) {
@@ -20,10 +22,11 @@ export class GamesListComponent implements OnInit {
   games: any = [];
   llistaAux: any = [];
 
-  constructor(private gameService: GamesService) { }
+  constructor(private gameService: GamesService, private cookieService: CookieService) { }
 
   ngOnInit() {
-    this.getGames();
+    this.getGames(); 
+    this.cookieValue = this.cookieService.get('loading'); 
   }
 
   getGames() {

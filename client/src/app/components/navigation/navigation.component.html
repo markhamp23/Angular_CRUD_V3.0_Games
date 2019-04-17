@@ -16,13 +16,13 @@
       <li class="nav-item">
         <a class="nav-link text-white" routerLink="/games"><i class="fas fa-gamepad"></i> Home</a>
       </li>
-      <li *ngIf="validateUser" class="nav-item">
+      <li *ngIf="loading" class="nav-item">
         <a class="nav-link text-white" routerLink="/games/add"><i class="fas fa-plus-circle"></i> Add Post</a>
       </li>
-      <li class="nav-item">
+      <li *ngIf="!loading" class="nav-item">
         <a class="nav-link text-white" (click)="openForm()"><i class="fas fa fa-key"></i> Login</a>
       </li>
-      <li *ngIf="validateUser" class="nav-item">
+      <li *ngIf="loading" class="nav-item">
         <a class="nav-link text-white" (click)="logout()"><i class="fas fa fa-key"></i> Logout</a>
       </li>
     </ul>
@@ -33,17 +33,11 @@
   <form action="" class="form-container" method="post">
 
     <h1 class="text-white">Login</h1>
-
+    <div id="publisherVerification"><h6 id="publisherVerification" class="text-danger" *ngIf="isLoading">No hi ha registres</h6></div>
     <label for="id"><b>Id</b></label>
-    <input type="id" #id name="id" placeholder="id">
+    <input type="text" name="user" [(ngModel)]="user.id">
 
-    <label for="username"><b>User Name</b></label>
-    <input type="text" #username name="username" placeholder="Username">
-
-    <label for="password"><b>Password</b></label>
-    <input type="password" #password name="password" placeholder="Password">
-
-    <button type="submit" class="btn login text-white" (click)="logIn(id.value,username.value, password.value, $event)" id="login-button">Login</button>
+    <button type="submit" class="btn login text-white" (click)="logIn()" id="login-button" data-target="#publisherVerification">Login</button>
     <button type="button" class="btn cancel" (click)="closeForm()">Close</button>
 
   </form>

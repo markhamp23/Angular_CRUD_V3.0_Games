@@ -17,8 +17,8 @@ import { GamesService } from './services/games.service';
 import { GameFormComponent } from './components/game-form/game-form.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { Footer2Component } from './components/footer2/footer2.component';
-import { GamesAdminComponent } from './components/games-admin/games-admin.component';
 import { AuthenticationService } from './services/authentication.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -28,7 +28,6 @@ import { AuthenticationService } from './services/authentication.service';
     GameFormComponent,
     FooterComponent,
     Footer2Component,
-    GamesAdminComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +40,8 @@ import { AuthenticationService } from './services/authentication.service';
   ],
   providers: [
     GamesService, 
-    AuthenticationService
+    AuthenticationService,
+    CookieService
   ],
   bootstrap: [AppComponent]
 })
