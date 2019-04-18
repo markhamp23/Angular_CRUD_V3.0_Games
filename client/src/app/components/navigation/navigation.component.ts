@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { AuthenticationService } from '../../services/authentication.service';
 import { CookieService } from 'ngx-cookie-service';
+import Utils from '../../utils/utils';
 
 @Component({
   selector: 'app-navigation',
@@ -12,14 +13,14 @@ import { CookieService } from 'ngx-cookie-service';
 export class NavigationComponent implements OnInit {
 
   loading: boolean = false;
-  isLoading: Boolean = false;
-  cookieValue = 'UNKNOWN';
-
+  isLoading: boolean = false;
   public user: User = new User();
+  public usuariActual: User;
 
-  constructor(private authenticationService: AuthenticationService, private router: Router, private route: ActivatedRoute, private cookieService: CookieService) { }
+  constructor(private authenticationService: AuthenticationService, private router: Router, private route: ActivatedRoute) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   logIn() {
     event.preventDefault(); // Avoid default action for the submit button of the login form
@@ -30,35 +31,35 @@ export class NavigationComponent implements OnInit {
       res => {
        console.log(this.user.id);
         if (res) {
-          this.cookieService.set( 'loading', 'true' );
           this.loading = true;
           this.isLoading = false;
           this.closeForm();
+          this.authenticationService.usuariActual = new User;
         }else{
           this.isLoading = true;
         }
-        //console.log(this.user.id);
       },
       error => {
         console.error(error);
       },
       () => this.navigate()
     );
-
   }
+
+  //////////////////////////////////////////////////////////////////////////////////////////////
 
   navigate() {
     this.router.navigateByUrl('/games');
     this.router.navigate(['/games']);
   }
 
-  //////////////////////////////////////////////////////////////////////////////////////////////
-
   logout() {
     // remove user from local storage to log user out
-    this.cookieService.deleteAll();
+    //this.actualUser == false;
     this.loading = null;
-    this.navigate();
+    this.authenticationService.logout();
+    this.navigate()
+    //location.reload();
   }
 
   openForm() {

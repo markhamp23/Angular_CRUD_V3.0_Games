@@ -1,6 +1,6 @@
-import { Component, OnInit, HostBinding } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { GamesService } from '../../services/games.service';
-import { CookieService } from 'ngx-cookie-service';
+import { AuthenticationService } from '../../services/authentication.service';
 
 @Component({
   selector: 'app-games-list',
@@ -9,10 +9,6 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class GamesListComponent implements OnInit {
 
-  modeUser: boolean = true;
-  cookieValue = 'UNKNOWN';
-
-  //@HostBinding('class') classes = 'row';
   mouseHover(e) {
     document.getElementById("flash").style.visibility = "hidden";
     var elems = document.getElementsByClassName('class1');
@@ -21,12 +17,11 @@ export class GamesListComponent implements OnInit {
   p: number = 1;
   games: any = [];
   llistaAux: any = [];
-
-  constructor(private gameService: GamesService, private cookieService: CookieService) { }
+ 
+  constructor(private gameService: GamesService, private authenticationService: AuthenticationService) { }
 
   ngOnInit() {
-    this.getGames(); 
-    this.cookieValue = this.cookieService.get('loading'); 
+    this.getGames();  
   }
 
   getGames() {
@@ -57,5 +52,4 @@ export class GamesListComponent implements OnInit {
       this.llistaAux.indexOf(newItem) === -1 ? this.llistaAux.push(newItem): console.log("This item already exists");
     }
   }
-
 }
