@@ -4,14 +4,14 @@
       <div class="card text-center mt-4">
         
         <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
-          {{ game.title }}
+          <a [routerLink]="['/games/view', game.id]" class="mainDash">{{ game.title }}</a>
           <button *ngIf="authenticationService.isLoggedIn()" class="btn btn-danger" (click)="deleteGame(game.id)">
             <i class="far fa-trash-alt"></i>
           </button>
         </div>
-        <img class="card-img-top flash" [src]="game.image" ng-mouseenter="hover = true" ng-mouseleave="hover = false">
+        <img class="card-img-top flash" [src]="game.image1" ng-mouseenter="hover = true" ng-mouseleave="hover = false">
         <div class="card-body" *ngIf="authenticationService.isLoggedIn()">
-          <p>{{game.description}}</p>
+          <!--<p> {{game.description}} </p>-->
           <p>Created at {{game.created_at | date: 'dd/MM/yyyy'}}</p>
           <a  [routerLink]="['/games/edit', game.id]" class="btn btn-info btn-block bg-dark text-white">
             EDIT GAME

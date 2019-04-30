@@ -1,3 +1,7 @@
+.myText{
+  font-family: Arial, Helvetica, sans-serif !important;
+}
+
 .masthead {
     height: 25vh;
     min-height: 150px;
@@ -6,8 +10,6 @@
     background-position: center;
     background-repeat: no-repeat;
 }
-
-
 
 /* The popup form - hidden by default */
 .form-popup {
@@ -71,10 +73,10 @@
   .form-container .cancel {
     background-color: #ff4f5e;
   }
-    /* Add a red background color to the cancel button */
-    .form-container .login {
-        background-color: #868e96;
-      }
+  /* Add a red background color to the cancel button */
+  .form-container .login {
+      background-color: #868e96;
+    }
   
   /* Add some hover effects to buttons */
   .form-container .btn:hover, .open-button:hover {

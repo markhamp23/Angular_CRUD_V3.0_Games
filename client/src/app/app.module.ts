@@ -19,6 +19,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { Footer2Component } from './components/footer2/footer2.component';
 import { AuthenticationService } from './services/authentication.service';
 import { CookieService } from 'ngx-cookie-service';
+import { GameViewComponent } from './components/game-view/game-view.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { CookieService } from 'ngx-cookie-service';
     GameFormComponent,
     FooterComponent,
     Footer2Component,
+    GameViewComponent,
   ],
   imports: [
     BrowserModule,

@@ -4,30 +4,55 @@
     <div class="card-body">
       <form action="">
         <div class="form-group">
-          <h4><span class="label label-default">Title:</span></h4>
-          <input type="text" name="title" [(ngModel)]="game.title" placeholder="Title" class="form-control" autofocus>
+          <h4><span class="label label-default">Post Title:</span></h4>
+          <input type="text" name="title" [(ngModel)]="game.title" placeholder="Title Post" class="form-control" autofocus>
         </div>
         <div class="form-group">
-          <h4><span class="label label-default">Description:</span></h4>
-          <textarea name="description" [(ngModel)]="game.description" rows="2" placeholder="Description" class="form-control"></textarea>
+          <h4><span class="label label-default">Post Description:</span></h4>
+          <textarea name="description" [(ngModel)]="game.description" rows="2" placeholder="Description Post" class="form-control"></textarea>
         </div>
         <div class="form-group">
-          <h4><span class="label label-default">Image:</span></h4>
-          <input type="url" name="image URL" [(ngModel)]="game.image" placeholder="Image" class="form-control">
+          <h4><span class="label label-default">Image 1:</span></h4>
+          <input type="url" name="image1" [(ngModel)]="game.image1" placeholder="Image Post" class="form-control">
         </div>
+        <div class="form-group">
+          <h4><span class="label label-default">Image Caption 1:</span></h4>
+          <input type="text" name="caption1" [(ngModel)]="game.caption1" placeholder="Image Captation" class="form-control" autofocus>
+        </div>        
+
+        <div class="form-group">
+          <h4><span class="label label-default">Image 2:</span></h4>
+          <input type="url" name="image2" [(ngModel)]="game.image2" placeholder="Image Post" class="form-control">
+        </div>
+        <div class="form-group">
+          <h4><span class="label label-default">Image Caption 2:</span></h4>
+          <input type="text" name="caption1" [(ngModel)]="game.caption2" placeholder="Image Post" class="form-control" autofocus>
+        </div>
+
         <button class="btn btn-success btn-block bg-dark" (click)="edit ? updateGame() : saveNewGame()">
           Save
         </button>
       </form>
     </div>
   </div>
-
+<!--
   <div class="card card-body text-center mt-4">
-    <img [src]="game.image == '' ? '../assets/no-image-available-hi.png' : game.image" alt="No Image" class="card-img-top">
+      <h4>Main Image Post:</h4>
+    <img [src]="game.image1 == '' ? '../assets/no-image-available-hi.png' : game.image1" alt="No Image" class="card-img-top">
       <h3 class="text-center mt-4">{{game.title == '' ? 'Image Title' : game.title}}</h3>
       <p>{{game.description == '' ? 'Write your Descrition' : game.description}}</p>
       <p>{{game.created_at | date: 'dd/MM/yyyy'}}</p>
   </div>
+-->
+<div class="card card-body text-center mt-4">
+  <img [src]="game.image1 == '' ? '../assets/no-image-available-hi.png' : game.image1" alt="No Image" class="card-img-top">
+    <p class="mt-4 text-right">{{game.caption1 == '' ? ' ' : game.caption1}}</p>
+</div>
+
+<div class="card card-body text-center mt-4" [hidden]="!game.image2">
+  <img [src]="game.image2" alt="No Image" class="card-img-top">
+    <p class="mt-4 text-right">{{game.caption2 == '' ? ' ' : game.caption2}}</p>
+</div>
 
   <div class="row">
       <div class="col-md-12 myClass float-left mt-4">

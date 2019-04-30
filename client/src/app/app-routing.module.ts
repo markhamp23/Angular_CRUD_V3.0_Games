@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { GamesListComponent } from './components/games-list/games-list.component';
 import { GameFormComponent } from './components/game-form/game-form.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
+import { GameViewComponent } from './components/game-view/game-view.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
     path: 'games/edit/:id',
     component: GameFormComponent
   }, 
+  {
+    path: 'games/view/:id',
+    component: GameViewComponent
+  },
   {
     path: 'users',
     component: NavigationComponent,

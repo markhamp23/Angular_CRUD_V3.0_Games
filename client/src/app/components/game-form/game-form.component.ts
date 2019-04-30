@@ -21,7 +21,10 @@ export class GameFormComponent implements OnInit {
     id: 0,
     title: '',
     description: '',
-    image: '',
+    image1: '',
+    caption1: '',
+    image2: '',
+    caption2: '',
     created_at: new Date()
   };
 

@@ -11,6 +11,9 @@
 
 .flash {
     opacity: 0.9;
+    max-height:230px;
+    width: auto;
+    height: auto;    
 }
 
 .flash:hover {
@@ -23,6 +26,10 @@
 
 a:hover {color:#f1f413;text-decoration:underline;}
 a {color:#d7e9fe;text-decoration:none;}
+
+.mainDash a:link, a:visited, a:hover {
+    color: #fff !important;
+}
 
 .myfloat{
     float: none;
@@ -59,4 +66,3 @@ a {color:#d7e9fe;text-decoration:none;}
 .myDisplay{
     visibility: hidden;
 }
-y

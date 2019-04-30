@@ -139,6 +139,14 @@ a:hover img {
     color: #fff;
 }
 
+.text {
+    display: block;
+    max-width: 75ch;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
 a img {
     vertical-align: middle;
     border:1px solid #fff;
