@@ -15,6 +15,9 @@ export class GameViewComponent implements OnInit {
   llistaAux: any = [];
   edit: boolean = false;
 
+  imgAux: string = "";
+  captionAux: string = "";
+
   constructor(private gameService: GamesService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
@@ -60,4 +63,10 @@ export class GameViewComponent implements OnInit {
       this.llistaAux.indexOf(newItem) === -1 ? this.llistaAux.push(newItem) : console.log("This item already exists");
     }
   }
+
+  ver(image,caption) {
+    this.imgAux = image;
+    this.captionAux = caption;
+  }
+
 }

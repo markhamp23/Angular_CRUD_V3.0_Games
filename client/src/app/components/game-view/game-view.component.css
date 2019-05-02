@@ -175,3 +175,16 @@
   }
 
   /*----------------------------*/
+
+  .btn-myPrimary, .btn-myPrimary:hover, .btn-myPrimary:active, .btn-myPrimary:visited {
+    background-color: #fff !important;
+  }
+
+  .modal-full {
+    min-width: 100%;
+    margin: 0;
+}
+
+.modal-full .modal-content {
+    min-height: 100vh;
+}
