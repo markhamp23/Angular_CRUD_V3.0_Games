@@ -1,4 +1,4 @@
-import { Component, OnInit, HostBinding } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { GamesService } from 'src/app/services/games.service';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 
@@ -18,11 +18,13 @@ export class GameViewComponent implements OnInit {
   imgAux: string = "";
   captionAux: string = "";
 
-  constructor(private gameService: GamesService, private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(private gameService: GamesService, private router: Router, private activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
+
     this.getGames();
     this.getGame();
+    //this.elem = document.documentElement;
 
     this.router.events.subscribe((evt) => {
       if (!(evt instanceof NavigationEnd)) {
@@ -68,5 +70,4 @@ export class GameViewComponent implements OnInit {
     this.imgAux = image;
     this.captionAux = caption;
   }
-
 }

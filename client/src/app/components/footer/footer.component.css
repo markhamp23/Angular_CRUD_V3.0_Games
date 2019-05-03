@@ -17,7 +17,7 @@
     display:block; /* for use on default inline elements like span */
     margin-left: -24px;
     overflow: hidden;
-    background-color: #313F45;
+    background-color: #313F45 !important;
   }
 
 

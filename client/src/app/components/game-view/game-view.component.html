@@ -6,51 +6,51 @@
     </div>
   </div>
 
-  <div class="card card-body text-center mt-4" data-toggle="modal" data-target="#myModal">
-    <img 
-      [src]="game.image1 == '' ? '../assets/no-image-available-hi.png' : game.image1" alt="No Image"
+  <div class="card card-body text-center mt-4 noDeco" data-toggle="modal" data-target="#myModal">
+    
+    <img [src]="game.image1 == '' ? '../assets/no-image-available-hi.png' : game.image1" alt="No Image"
       class="card-img-top" (click)=ver(game.image1,game.caption1)>
     <p class="mt-4 text-center">{{game.caption1 == '' ? ' ' : game.caption1}}</p>
   </div>
 
-  <div class="card card-body text-center mt-4" [hidden]="!game.image2" data-toggle="modal" data-target="#myModal">
+  <div class="card card-body text-center mt-4 noDeco" [hidden]="!game.image2" data-toggle="modal" data-target="#myModal">
     <img [src]="game.image2" alt="No Image" class="card-img-top" (click)=ver(game.image2,game.caption2)>
     <p class="mt-4 text-center">{{game.caption2}}</p>
   </div>
 
-  <div class="card card-body text-center mt-4" [hidden]="!game.image3" data-toggle="modal" data-target="#myModal">
+  <div class="card card-body text-center mt-4 noDeco" [hidden]="!game.image3" data-toggle="modal" data-target="#myModal">
     <img [src]="game.image3" alt="No Image" class="card-img-top" (click)=ver(game.image3,game.caption3)>
     <p class="mt-4 text-center">{{game.caption3}}</p>
   </div>
 
   <br>
-  <div class="row">
+  <div class="row hidden-xs hidden-sm">
     <div class="col-md-12 myClass float-left mt-4">
-      <div class="mt-4 float-left myClass">
-        Labels: {{game.title == '' ? 'Image Title' : game.title}}
+      <div id='hover' class="mt-4 float-left myClass">
+        Labels: <a  [routerLink]="['/games/view', game.id]"> {{game.title == '' ? 'Image Title' : game.title}}</a>
       </div>
     </div>
-  </div>
+  </div>    
 </div>
 
 
 <!-- Modal -->
-<div class="modal" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal modal-bg hidden-xs hidden-sm" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-full" role="document">
         <div class="modal-content">
 
-              <div class="card myCard text-center mt-4">
-                  <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
-                    <p class="mainDash">{{ game.title }}</p>
-                    <button class="btn btn-myPrimary">
-                        <i class="fa fa-window-close" data-dismiss="modal"></i>
-                    </button>
-                  </div>
-                  <img class="card-img-top flash" [src]="imgAux">
-                  <div class="card-body">
-                    <p> {{captionAux}} </p>
-                    <p>Created at {{game.created_at | date: 'dd/MM/yyyy'}}</p>
-                  </div>
+            <div class="card myCard text-center">
+                <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+                  <p class="mainDash">{{ game.title }}</p>
+                  <button class="btn btn-myPrimary">
+                      <i class="fa fa-window-close" data-dismiss="modal"></i>
+                  </button>
+                </div>
+                <img class="card-img-top flash" [src]="imgAux">
+                <div class="card-body" [hidden]="!captionAux || captionAux">
+                  <p> {{ captionAux }} </p>
+                  <p>Created at {{ game.created_at | date: 'dd/MM/yyyy' }}</p>
+                </div>
             </div>
 
         </div>
