@@ -16,7 +16,7 @@ class GamesController {
     //allrecords
     getAll(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const games = yield database_1.default.query('SELECT * FROM games');
+            const games = yield database_1.default.query('SELECT * FROM games ORDER BY created_at DESC');
             res.json(games);
         });
     }
