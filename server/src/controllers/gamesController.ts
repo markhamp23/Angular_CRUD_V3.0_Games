@@ -5,7 +5,7 @@ class GamesController {
 
     //allrecords
     public async getAll(req: Request, res: Response): Promise<void> {
-        const games = await pool.query('SELECT * FROM games');
+        const games = await pool.query('SELECT * FROM games ORDER BY created_at DESC');
         res.json(games);
     }
 
