@@ -4,6 +4,8 @@ import { GamesListComponent } from './components/games-list/games-list.component
 import { GameFormComponent } from './components/game-form/game-form.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { GameViewComponent } from './components/game-view/game-view.component';
+import { GamesApiComponent } from './components/games-api/games-api.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -17,7 +19,8 @@ const routes: Routes = [
   },
   {
     path: 'games/add',
-    component: GameFormComponent
+    component: GameFormComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'games/edit/:id',
@@ -26,6 +29,11 @@ const routes: Routes = [
   {
     path: 'games/view/:id',
     component: GameViewComponent
+  },
+  {
+    path: 'games/api',
+    component: GamesApiComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'users',

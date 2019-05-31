@@ -1,30 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 import { GamesService } from 'src/app/services/games.service';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
+import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 
 @Component({
   selector: 'app-game-view',
   templateUrl: './game-view.component.html',
   styleUrls: ['./game-view.component.css']
 })
+
 export class GameViewComponent implements OnInit {
 
+  public loading: Boolean = true;
   p: number = 1;
   games: any = [];
-  game: any;
+  game: any = null;
   llistaAux: any = [];
   edit: boolean = false;
-
   imgAux: string = "";
   captionAux: string = "";
 
-  constructor(private gameService: GamesService, private router: Router, private activatedRoute: ActivatedRoute) {}
+  constructor(private gameService: GamesService, private router: Router, private activatedRoute: ActivatedRoute, private spinnerService: Ng4LoadingSpinnerService) {}
 
   ngOnInit() {
-
     this.getGames();
     this.getGame();
-    //this.elem = document.documentElement;
 
     this.router.events.subscribe((evt) => {
       if (!(evt instanceof NavigationEnd)) {
@@ -33,6 +33,7 @@ export class GameViewComponent implements OnInit {
       this.getGame();
     });
   }
+
   getGame() {
     let id = this.activatedRoute.snapshot.paramMap.get('id')
     if (id) {
@@ -41,7 +42,7 @@ export class GameViewComponent implements OnInit {
           res => {
             console.log(res);
             this.game = res;
-            this.edit = true
+            this.edit = true;
           },
           err => console.log(err)
         )
@@ -49,9 +50,11 @@ export class GameViewComponent implements OnInit {
   }
 
   getGames() {
+    this.loading = true;
     this.gameService.getGames()
       .subscribe(
         res => {
+          this.loading = false;
           this.games = res;
           this.getLlistaAux();
         },
@@ -70,4 +73,10 @@ export class GameViewComponent implements OnInit {
     this.imgAux = image;
     this.captionAux = caption;
   }
+
+  /*show()
+  {
+    this.spinnerService.show();
+    setTimeout(()=>this.spinnerService.hide(),3000)
+  }*/
 }

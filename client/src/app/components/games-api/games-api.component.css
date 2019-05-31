@@ -1,33 +1,6 @@
 .col-centered{
     float: none;
     margin: 0 auto;
-}
-
-.myfloat{
-    float: none;
-    margin: 0 auto;
-    float: right;
-    display: fixed;
-}
-
-.myClass {
-    display: inline-block; 
-    font: 13px Halvetica, Arial, Verdana, Sans-serif;
-    font-size: 17px;
-    color: #fff !important;
-    margin-left: -6%
-}
-
-.label-default {
-background-color: #fff;
-color: #333 !important;
-font: 17px Halvetica, Arial, Verdana, Sans-serif;
-font-weight: bolder;
-}
-
-.col-centered{
-    float: none;
-    margin: 0 auto;
     float: center;
     display: block;
 }
@@ -188,10 +161,9 @@ font-weight: bolder;
   }
 
 .modal-full {
-min-width: 75%;
-min-height: 100%;
-height: auto;
-
+    min-width: 75%;
+    min-height: 100%;
+    height: auto;
 }
 
 .modal-full .modal-content {
@@ -206,22 +178,3 @@ height: auto;
 #myPlaceHolder {
     text-align: center; 
 }
-
-@media only screen and (max-width: 1380px) {
-    .card-img-top {
-      width: 100%;
-      max-height: 500px;
-      border-top-left-radius: calc(.25rem - 1px);
-      border-top-right-radius: calc(.25rem - 1px);
-    }
-}
-
-@media only screen and (min-width: 1350px) {
-  .card-img-top {
-    width: 100%;
-    max-height: 610px;
-    border-top-left-radius: calc(.25rem - 1px);
-    border-top-right-radius: calc(.25rem - 1px);
-  }
-}
-

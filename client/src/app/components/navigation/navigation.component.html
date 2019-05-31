@@ -19,6 +19,9 @@
       <li *ngIf="loading" class="nav-item">
         <a class="nav-link text-white" routerLink="/games/add"><i class="fas fa-plus-circle"></i> Add Post</a>
       </li>
+      <li *ngIf="loading" class="nav-item">
+        <a class="nav-link text-white" routerLink="/games/api"><i class="fas fa-plus-circle"></i> Add Post/Api</a>
+      </li>      
       <li *ngIf="!loading" class="nav-item">
         <a class="nav-link text-white" (click)="openForm()"><i class="fas fa fa-key"></i> Login</a>
       </li>

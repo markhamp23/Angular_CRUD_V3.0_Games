@@ -29,7 +29,6 @@ export class NavigationComponent implements OnInit {
     this.authenticationService.getUser(this.user.id).subscribe(
 
       res => {
-       console.log(this.user.id);
         if (res) {
           this.loading = true;
           this.isLoading = false;
@@ -42,7 +41,7 @@ export class NavigationComponent implements OnInit {
       error => {
         console.error(error);
       },
-      () => this.navigate()
+      
     );
   }
 
@@ -58,7 +57,7 @@ export class NavigationComponent implements OnInit {
     //this.actualUser == false;
     this.loading = null;
     this.authenticationService.logout();
-    this.navigate()
+    this.navigate();
     //location.reload();
   }
 

@@ -29,6 +29,15 @@ body {
     display:block; /* for use on default inline elements like span */
     margin: 9px 0;
     overflow: hidden;
-    background-color: #313F45 !important;
+    border-color:#252628 !important;
+  }
+
+  .dividerFooter {
+    height: 1%;
+    width:105%;
+    display:block; /* for use on default inline elements like span */
+    margin-left: -24px;
+    overflow: hidden;
+    border-color:#252628 !important;
   }
 

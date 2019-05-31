@@ -11,16 +11,6 @@
     background-color: #313F45;
 }
 
-.dividerFooter {
-    height: 1%;
-    width:105%;
-    display:block; /* for use on default inline elements like span */
-    margin-left: -24px;
-    overflow: hidden;
-    background-color: #313F45 !important;
-  }
-
-
 #center1-bottom, #center2-bottom {
     width: 50%;
     float: left;
@@ -68,13 +58,11 @@
     color: #fff !important;
 }
 
-
 .widget {
     padding: 0 15px 20px 15px;
     margin-left: -37px !important;
     
 }
-
 
 div.clear {
     clear: both;
@@ -108,7 +96,7 @@ li, a {
 
 .PopularPosts .item-snippet {
     height: 61px;
-    width: 50%;
+    width: 70%;
     overflow: hidden;
     padding-top: 0px;
     padding-left: 10px;
@@ -141,7 +129,7 @@ a:hover img {
 
 .text {
     display: block;
-    max-width: 75ch;
+    max-width: 180ch;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;

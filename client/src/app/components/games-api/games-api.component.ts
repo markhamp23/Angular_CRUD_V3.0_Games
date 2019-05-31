@@ -6,22 +6,16 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { LlistatModel } from '../../models/llistat-model';
 
 @Component({
-  selector: 'app-game-form',
-  templateUrl: './game-form.component.html',
-  styleUrls: ['./game-form.component.css']
+  selector: 'app-games-api',
+  templateUrl: './games-api.component.html',
+  styleUrls: ['./games-api.component.css']
 })
-export class GameFormComponent implements OnInit {
-
-  //@HostBinding('class') clases = 'row';
+export class GamesApiComponent implements OnInit {
 
   p: number = 1;
   games: any = [];
   llistaAux: any = [];
   variable: string = '';
-  public arrayllista: any[] = [];
-
-  @Input() articleSource: string = '';
-  @Output() valueChange = new EventEmitter<any>();
 
   game: Game = {
     id: 0,
@@ -37,8 +31,13 @@ export class GameFormComponent implements OnInit {
   };
 
   edit: boolean = false;
+
   gameAux: any = null;
-  gameAux2: any = null;
+
+  @Input() articleSource: string = '';
+  @Output() valueChange = new EventEmitter<any>();
+
+  public arrayllista: any[] = [];
 
   constructor(private gameService: GamesService, private authenticationService: AuthenticationService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
@@ -46,25 +45,26 @@ export class GameFormComponent implements OnInit {
 
     let randomPic = Math.floor(Math.random() * 5);
 
-    switch (randomPic) {
-      case 1:
-        this.articleSource = 'field';;
-        break;
-      case 2:
-        this.articleSource = 'night';
-        break;
-      case 3:
-        this.articleSource = 'cafe';
-        break;
-      case 4:
-        this.articleSource = 'market';
-        break;
-      case 5:
-        this.articleSource = 'cars';
-        break;
-      default:
-        this.articleSource = 'sea';
-        break;
+    switch (randomPic)
+    {
+        case 1:
+            this.articleSource = 'field';;
+            break;
+        case 2:
+            this.articleSource = 'night';
+            break;
+        case 3:
+            this.articleSource = 'cafe';
+            break;   
+        case 4:
+            this.articleSource = 'market';
+            break;    
+        case 5:
+            this.articleSource = 'cars';
+            break;                              
+        default:
+            this.articleSource = 'sea';
+            break;
     }
 
     for (let i = 0; i < 9; i++) {
@@ -80,14 +80,12 @@ export class GameFormComponent implements OnInit {
         this.arrayllista.push(llistat)
       })
     }
-
     this.getGames();
     const params = this.activatedRoute.snapshot.params;
     if (params.id) {
       this.gameService.getGame(params.id)
         .subscribe(
           res => {
-            console.log(res);
             this.game = res;
             this.edit = true
           },
@@ -124,7 +122,7 @@ export class GameFormComponent implements OnInit {
     delete this.game.created_at;
     this.gameService.updateGame(this.game.id, this.game)
       .subscribe(
-        res => {
+        res => { 
           console.log(res);
           this.router.navigate(['/games']);
         },
@@ -162,12 +160,6 @@ export class GameFormComponent implements OnInit {
 
   ver(game) {
     this.gameAux = game;
-  }
-
-  verImatge(obj1, obj2) {
-    this.gameAux2 = { image: null, title: null };
-    this.gameAux2.image = obj1;
-    this.gameAux2.title = obj2;
   }
 
 }

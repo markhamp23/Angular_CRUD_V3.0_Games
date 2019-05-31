@@ -1,0 +1,122 @@
+<div class="col-md-10 offset-md-2 col-centered">
+
+  <div class="card mt-4">
+    <div class="card-body">
+      <form action="">
+        <div class="form-group">
+          <h4><span class="label label-default">Title:</span></h4>
+          <input type="text" name="title" [(ngModel)]="game.title" placeholder="Title" class="form-control" autofocus>
+        </div>
+        <div class="form-group">
+          <h4><span class="label label-default">Description:</span></h4>
+          <textarea name="description" [(ngModel)]="game.description" rows="2" placeholder="Description" class="form-control"></textarea>
+        </div>
+        <div class="form-group">
+          <h4><span class="label label-default">Image:</span></h4>
+          <input type="url" name="image1" [(ngModel)]="game.image1" placeholder="Image Post 1" class="form-control">
+        </div>
+        <div class="form-group">
+          <h4><span class="label label-default">Caption:</span></h4>
+          <input type="text" name="caption1" [(ngModel)]="game.caption1" placeholder="Image Captation 1" class="form-control" autofocus>
+        </div>        
+
+        <div class="form-group">
+          <h4><span class="label label-default">Image:</span></h4>
+          <input type="url" name="image2" [(ngModel)]="game.image2" placeholder="Image Post 2" class="form-control">
+        </div>
+        <div class="form-group">
+          <h4><span class="label label-default">Caption:</span></h4>
+          <input type="text" name="caption2" [(ngModel)]="game.caption2" placeholder="Image Caption 2" class="form-control" autofocus>
+        </div>
+
+        <div class="form-group">
+          <h4><span class="label label-default">Image:</span></h4>
+          <input type="url" name="image3" [(ngModel)]="game.image3" placeholder="Image Post 3" class="form-control">
+        </div>
+        <div class="form-group">
+          <h4><span class="label label-default">Caption:</span></h4>
+          <input type="text" name="caption3" [(ngModel)]="game.caption3" placeholder="Image Captation 3" class="form-control" autofocus>
+        </div>
+        <div class="form-group">
+            <h4><span class="label label-default">Caption:</span></h4>
+            <input type="text" name="caption4" [(ngModel)]="game.caption4" placeholder="Image Captation 4" class="form-control" autofocus>
+          </div>        
+
+        <button class="btn btn-success btn-block bg-dark" (click)="edit ? updateGame() : saveNewGame()">
+          Save
+        </button>
+      </form>
+    </div>
+  </div>
+  <br>
+  <hr class="divider mt-4"/>
+  <br>
+  <div class="form-group mt-4">
+    <h4><span class="label label-default2">Search Image from Unsplash Websites:</span></h4>
+  </div>
+
+<form *ngIf="!loading" class="form-inline">
+    <div class="form-group mx-sm-3 mb-2">
+        <input [(ngModel)]="variable" type="text" class="form-control mySize" name="variable" id="form-id">
+    </div>
+    <button class="btn btn-light mb-2" (click)="onClick()">Search</button>
+</form>
+<br>
+<div class="row">
+    <div class="col-md-4" *ngFor="let game of arrayllista">
+      <div class="card text-center mt-4">
+      <div class="card text-center" >
+        
+        <div *ngIf="game.description" class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+          <span class="mainDash text">{{ game.description }}</span>
+        </div>
+
+        <div *ngIf="!game.description" class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+            <span class="mainDash text">Not Description</span>
+        </div>        
+
+        <img class="card-img-top flash" [src]="game.imageurl">
+        <div class="card-body" *ngIf="authenticationService.getUsuariActual()">
+            <!--<p> {{game.description}} </p>-->
+            <p class="text2">Created by {{game.imageown}}</p>
+
+            <a  data-toggle="modal" data-target="#myModalApi" (click)=ver(game) class="btn btn-info btn-block bg-dark text-white hidden-xs hidden-sm">
+              VIEW PHOTOGRAPHY
+            </a>
+          </div>
+        </div> 
+      </div>
+    </div>
+    <br>
+  </div>
+  <br>
+</div>
+
+<!-- Modal -->
+<div class="modal modal-bg hidden-xs hidden-sm" id="myModalApi" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-full" role="document">
+        <div class="modal-content">
+            <div *ngIf="gameAux" class="card myCard text-center">
+              <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+                <p class="mainDash">{{ gameAux?.description }}</p>
+                <button class="btn btn-myPrimary">
+                    <i class="fa fa-window-close" data-dismiss="modal"></i>
+                </button>
+              </div>
+              <img class="card-img-top" [src]="gameAux?.imageurl">
+              <div class="card-body">
+
+                <div class="form-group">
+                    <h5><span class="label label-default">Photography Info</span></h5>
+                    <input type="text" name="title" [(ngModel)]="gameAux.imageurl" placeholder="gameAux.imageurl" class="form-control" id="myPlaceHolder" autofocus>
+                </div>
+
+                <p>Created by {{ gameAux?.imageown }} </p>
+                <p>{{ gameAux?.city }} - {{ gameAux?.country }}</p>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-footer [games]="games" [llistaAux]="llistaAux"></app-footer>

@@ -29,6 +29,8 @@ a {color:#d7e9fe;text-decoration:none;}
 
 .mainDash a:link, a:visited, a:hover {
     color: #fff !important;
+    text-decoration:none;
+    max-width: 75ch;
 }
 
 .myfloat{
@@ -65,4 +67,27 @@ a {color:#d7e9fe;text-decoration:none;}
 
 .myDisplay{
     visibility: hidden;
+}
+
+.text {
+    display: block;
+    max-width: 75ch;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-decoration:none;
+  }
+  .text2 {
+    display: block;
+    max-width: 75ch;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-decoration:none;
+  }  
+.text::first-letter {
+    color: red;
+    font: 20px Halvetica, Arial, Verdana, Sans-serif;
+    text-transform: capitalize;
+    text-decoration:none; 
 }

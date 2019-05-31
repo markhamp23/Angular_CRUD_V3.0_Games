@@ -1,5 +1,11 @@
-<div class="col-md-10 offset-md-2 col-centered">
-<br>
+<!--<div *ngIf="loading" class="spinner-border" role="status">
+  <span class="sr-only">Loading...</span>
+</div>-->
+
+<ng4-loading-spinner></ng4-loading-spinner>
+
+<div class="col-md-10 offset-md-2 col-centered" *ngIf="game">
+  <br>
   <div class="mycard mt-4">
     <div class="mycard mycard-body mt-n1">
       <h4><span class="mycard-text mt-n2">{{game.description == '' ? '' : game.description}}</span></h4>
@@ -7,54 +13,58 @@
   </div>
 
   <div class="card card-body text-center mt-4 noDeco" data-toggle="modal" data-target="#myModal">
-    
     <img [src]="game.image1 == '' ? '../assets/no-image-available-hi.png' : game.image1" alt="No Image"
       class="card-img-top" (click)=ver(game.image1,game.caption1)>
-    <p class="mt-4 text-center">{{game.caption1 == '' ? ' ' : game.caption1}}</p>
+    <p class="mt-4 text-center font-italic">{{game.caption1 == '' ? ' ' : game.caption1}}</p>
   </div>
 
-  <div class="card card-body text-center mt-4 noDeco" [hidden]="!game.image2" data-toggle="modal" data-target="#myModal">
+  <div class="card card-body text-center mt-4 noDeco" [hidden]="!game.image2" data-toggle="modal"
+    data-target="#myModal">
     <img [src]="game.image2" alt="No Image" class="card-img-top" (click)=ver(game.image2,game.caption2)>
-    <p class="mt-4 text-center">{{game.caption2}}</p>
+    <p class="mt-4 text-center font-italic">{{game.caption2}}</p>
   </div>
 
-  <div class="card card-body text-center mt-4 noDeco" [hidden]="!game.image3" data-toggle="modal" data-target="#myModal">
+  <div class="card card-body text-center mt-4 noDeco" [hidden]="!game.image3" data-toggle="modal"
+    data-target="#myModal">
     <img [src]="game.image3" alt="No Image" class="card-img-top" (click)=ver(game.image3,game.caption3)>
-    <p class="mt-4 text-center">{{game.caption3}}</p>
+    <p class="mt-4 text-center font-italic">{{game.caption3}}</p>
+  </div>
+
+  <div class="card card-body text-center mt-4 noDeco" [hidden]="!game.image4" data-toggle="modal"
+    data-target="#myModal">
+    <img [src]="game.image4" alt="No Image" class="card-img-top" (click)=ver(game.image4,game.caption4)>
+    <p class="mt-4 text-center font-italic">{{game.caption4}}</p>
   </div>
 
   <br>
   <div class="row hidden-xs hidden-sm">
     <div class="col-md-12 myClass float-left mt-4">
       <div id='hover' class="mt-4 float-left myClass">
-        Labels: <a  [routerLink]="['/games/view', game.id]"> {{game.title == '' ? 'Image Title' : game.title}}</a>
+        Labels: <a [routerLink]="['/games/view', game.id]"> {{game.title == '' ? 'Image Title' : game.title}}</a>
       </div>
     </div>
-  </div>    
+  </div>
 </div>
-
 
 <!-- Modal -->
 <div class="modal modal-bg hidden-xs hidden-sm" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-full" role="document">
-        <div class="modal-content">
-
-            <div class="card myCard text-center">
-                <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
-                  <p class="mainDash">{{ game.title }}</p>
-                  <button class="btn btn-myPrimary">
-                      <i class="fa fa-window-close" data-dismiss="modal"></i>
-                  </button>
-                </div>
-                <img class="card-img-top flash" [src]="imgAux">
-                <div class="card-body" [hidden]="!captionAux || captionAux">
-                  <p> {{ captionAux }} </p>
-                  <p>Created at {{ game.created_at | date: 'dd/MM/yyyy' }}</p>
-                </div>
-            </div>
-
+  <div class="modal-dialog modal-full" role="document">
+    <div class="modal-content">
+      <div class="card myCard text-center">
+        <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+          <p class="mainDash">{{ game.title }}</p>
+          <button class="btn btn-myPrimary">
+            <i class="fa fa-window-close" data-dismiss="modal"></i>
+          </button>
         </div>
+        <img class="card-img-top" [src]="imgAux">
+        <div class="card-body" [hidden]="!captionAux || captionAux">
+          <p> {{ captionAux }} </p>
+          <p>Created at {{ game.created_at | date: 'dd/MM/yyyy' }}</p>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
 
 <app-footer [games]="games" [llistaAux]="llistaAux"></app-footer>
