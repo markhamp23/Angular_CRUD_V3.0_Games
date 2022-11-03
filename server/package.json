@@ -30,6 +30,6 @@
   },
   "devDependencies": {
     "@types/express": "^4.16.1",
-    "nodemon": "^1.18.10"
+    "nodemon": "^2.0.20"
   }
 }
